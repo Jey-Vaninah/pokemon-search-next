@@ -19,3 +19,11 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.f-c-c {
+  @apply flex flex-row justify-center items-center
+}
+
+button {
+  @apply px-4 py-2 font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 active:bg-blue-800 transition
+}
