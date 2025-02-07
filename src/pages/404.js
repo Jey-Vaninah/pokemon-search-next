@@ -10,7 +10,7 @@ const NotFoundPage = () => {
   };
 
   return (
-    <div className="f-c-c flex-column h-[100vh] min-w-[100%]">
+    <div className="f-c-c flex-col h-[100vh] min-w-[100%]">
       <Image src={notFoundIcon} alt="Not Found" />
       <h1 className="text-white font-bold text-xl my-2">
         Ooops!! The page you're looking for doesn't exist.
