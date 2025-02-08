@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import axios from "axios";
 import { PokemonShow } from "@/components/pokemon-show";
+import { axioInstance } from "@/config/axios";
 
 export default function PokemonDetailsPage() {
   const { query } = useRouter();
@@ -18,8 +18,8 @@ export default function PokemonDetailsPage() {
     if (id) {
       const fetchPokemon = async () => {
         try {
-          const { data: speciesResponse } = await axios.get(`/api/pokemon-species/${id}`);
-          const { data: pokemonResponse } = await axios.get(`/api/pokemon/${id}`);
+          const { data: speciesResponse } = await axioInstance.get(`/pokemon-species/${id}`);
+          const { data: pokemonResponse } = await axioInstance.get(`/pokemon/${id}`);
 
           const description =
             speciesResponse?.flavor_text_entries.find((entry) => entry?.language?.name === "en")
@@ -49,8 +49,8 @@ export default function PokemonDetailsPage() {
   }
 
   return (
-    <div className="w-full min-h-screen">
-      <div className="f-c-c">
+    <div className="w-full h-screen">
+      <div className="f-c-c w-full flex-col h-full">
         <PokemonShow pokemonDetails={pokemonDetails} />
       </div>
     </div>

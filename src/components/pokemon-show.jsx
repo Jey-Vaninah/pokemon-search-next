@@ -14,7 +14,7 @@ export const PokemonShow = ({ pokemonDetails }) => {
       <button onClick={() => router.push("/")} className="absolute top-10 left-10">
         Go Home
       </button>
-      <div className="flex gap-8 w-full">
+      <div className="flex justify-center gap-8 w-full">
         <div className="flex flex-col p-4 w-[500px] bg-white rounded-md shadow-lg">
           <p className="text-xl font-bold capitalize text-black">
             {pokemonDetails?.isLoading ? "Loading..." : pokemonDetails?.name}
@@ -28,7 +28,7 @@ export const PokemonShow = ({ pokemonDetails }) => {
           <p className="text-xl font-bold capitalize text-black">Sprites</p>
           <div className="flex gap-4 flex-wrap w-full">
             {images.map((image, index) => (
-              <Image key={index} src={image} className="w-[100px]" />
+              <Image key={index} width={100} height={100} src={image} />
             ))}
           </div>
         </div>

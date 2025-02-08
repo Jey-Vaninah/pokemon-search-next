@@ -3,9 +3,9 @@
 import React, { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { useRouter } from "next/navigation";
-import axios from "axios";
 import { randomNumber } from "../utils/random";
 import { SearchInput } from "@/components";
+import { axioInstance } from "@/config/axios";
 
 const PokemonSearchPage = () => {
   const [pokemons, setPokemons] = useState([]);
@@ -20,7 +20,7 @@ const PokemonSearchPage = () => {
   useEffect(() => {
     const fetchPokemons = async () => {
       try {
-        const { data } = await axios.get("https://pokeapi.co/api/v2/pokemon-species?limit=1000");
+        const { data } = await axioInstance.get("/pokemon-species?limit=1000");
         setPokemons(data.results);
       } catch (error) {
         console.error("Erreur lors du chargement des Pokémon :", error);
